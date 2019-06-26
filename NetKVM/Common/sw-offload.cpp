@@ -347,8 +347,6 @@ QualifyIpPacket(IPHeader *pIpHeader, ULONG len, BOOLEAN verifyLength)
                     __fallthrough;
                 case 51:
                     __fallthrough;
-                case 50:
-                    __fallthrough;
                 case 135:
                     if (len >= ((ULONG)ipHeaderSize + 8))
                     {
@@ -948,6 +946,8 @@ BOOLEAN AnalyzeIP6Hdr(
             __fallthrough;
         case PROTOCOL_UDP:
             __fallthrough;
+        case IP6_HDR_ESP:
+            __fallthrough;
         case IP6_HDR_FRAGMENT:
             return TRUE;
         case IP6_HDR_DESTINATION:
@@ -980,8 +980,6 @@ BOOLEAN AnalyzeIP6Hdr(
             }
             break;
         case IP6_HDR_HOP_BY_HOP:
-            __fallthrough;
-        case IP6_HDR_ESP:
             __fallthrough;
         case IP6_HDR_AUTHENTICATION:
             __fallthrough;
